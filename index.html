@@ -81,6 +81,31 @@
             border-radius: 10px;
             margin-bottom: 15px;
             border-left: 4px solid #667eea;
+            position: relative;
+            transition: opacity 0.3s, background 0.3s;
+        }
+
+        .clase-item.disabled {
+            opacity: 0.5;
+            background: #e9ecef;
+        }
+
+        .clase-item .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .clase-item .delete-btn:hover {
+            background: #c82333;
         }
 
         .clase-item h3 {
@@ -93,6 +118,28 @@
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-bottom: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            user-select: none;
         }
 
         .input-group label {
@@ -267,9 +314,8 @@
             </div>
 
             <div class="config-section">
-                <label for="numClases">¿Cuántas clases de datos tienes?</label>
-                <input type="number" id="numClases" min="1" value="5">
-                <button class="btn" onclick="generarInputs()" style="margin-top: 15px;">Generar Campos</button>
+                <label>Gestión de Clases</label>
+                <button class="btn" onclick="agregarClase()" style="margin-top: 15px;">➕ Agregar Clase</button>
             </div>
 
             <div id="inputClases" class="input-section"></div>
@@ -287,74 +333,83 @@
     </div>
 
     <script>
-        let datos = [];
+        let contadorClases = 0;
 
-        function generarInputs() {
-            const numClases = parseInt(document.getElementById('numClases').value);
+        function agregarClase() {
             const container = document.getElementById('inputClases');
-            container.innerHTML = '';
-
-            if (numClases < 1) {
-                mostrarError('Por favor ingresa un número válido de clases.');
-                return;
-            }
-
-            for (let i = 0; i < numClases; i++) {
-                const claseDiv = document.createElement('div');
-                claseDiv.className = 'clase-item';
-                claseDiv.innerHTML = `
-                    <h3>Clase ${i + 1}</h3>
-                    <div class="input-group">
-                        <div>
-                            <label>Rango (ej: 12-14):</label>
-                            <input type="text" id="rango${i}" placeholder="12-14">
-                        </div>
-                        <div>
-                            <label>Frecuencia:</label>
-                            <input type="number" id="freq${i}" min="0" value="0">
-                        </div>
+            const claseDiv = document.createElement('div');
+            claseDiv.className = 'clase-item';
+            claseDiv.id = `clase-${contadorClases}`;
+            claseDiv.innerHTML = `
+                <button class="delete-btn" onclick="eliminarClase(${contadorClases})">🗑️ Eliminar</button>
+                <h3>Clase ${contadorClases + 1}</h3>
+                <div class="input-group">
+                    <div>
+                        <label>Rango (ej: 12-14):</label>
+                        <input type="text" id="rango${contadorClases}" placeholder="12-14">
                     </div>
-                `;
-                container.appendChild(claseDiv);
+                    <div>
+                        <label>Frecuencia:</label>
+                        <input type="number" id="freq${contadorClases}" min="0" value="0">
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="incluir${contadorClases}" checked onchange="toggleClase(${contadorClases})">
+                    <label for="incluir${contadorClases}">✅ Incluir esta clase en los cálculos</label>
+                </div>
+            `;
+            container.appendChild(claseDiv);
+            contadorClases++;
+        }
+
+        function eliminarClase(id) {
+            const elemento = document.getElementById(`clase-${id}`);
+            if (elemento) {
+                elemento.remove();
             }
         }
 
-        function parsearRango(rango) {
-            const patron = /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)$/;
-            const match = rango.trim().match(patron);
-
-            if (!match) {
-                throw new Error(`Formato de rango inválido: ${rango}`);
+        function toggleClase(id) {
+            const checkbox = document.getElementById(`incluir${id}`);
+            const claseDiv = document.getElementById(`clase-${id}`);
+            
+            if (checkbox.checked) {
+                claseDiv.classList.remove('disabled');
+            } else {
+                claseDiv.classList.add('disabled');
             }
-
-            const inicio = parseFloat(match[1]);
-            const fin = parseFloat(match[2]);
-
-            if (inicio >= fin) {
-                throw new Error(`El valor inicial debe ser menor que el final: ${rango}`);
-            }
-
-            return { inicio, fin };
         }
 
         function recopilarDatos() {
-            const numClases = parseInt(document.getElementById('numClases').value);
+            const container = document.getElementById('inputClases');
+            const clases = container.querySelectorAll('.clase-item');
             datos = [];
 
-            for (let i = 0; i < numClases; i++) {
-                const rango = document.getElementById(`rango${i}`).value;
-                const freq = parseInt(document.getElementById(`freq${i}`).value);
+            clases.forEach((clase, index) => {
+                const id = clase.id.split('-')[1];
+                const checkbox = document.getElementById(`incluir${id}`);
+                
+                // Solo incluir si el checkbox está marcado
+                if (checkbox && checkbox.checked) {
+                    const rangoInput = document.getElementById(`rango${id}`);
+                    const freqInput = document.getElementById(`freq${id}`);
+                    
+                    if (!rangoInput || !freqInput) return;
+                    
+                    const rango = rangoInput.value;
+                    const freq = parseInt(freqInput.value);
 
-                if (!rango || isNaN(freq) || freq < 0) {
-                    throw new Error(`Datos inválidos en la clase ${i + 1}`);
+                    if (!rango || isNaN(freq) || freq < 0) {
+                        throw new Error(`Datos inválidos en la clase ${index + 1}`);
+                    }
+
+                    parsearRango(rango); // Validar formato
+                    datos.push({ rango, frecuencia: freq });
                 }
-
-                parsearRango(rango); // Validar formato
-                datos.push({ rango, frecuencia: freq });
-            }
+            });
 
             if (datos.length === 0) {
-                throw new Error('No hay datos para procesar');
+                throw new Error('No hay clases habilitadas para procesar. Marca al menos una clase.');
             }
 
             return datos;
@@ -548,8 +603,30 @@
                 `<div class="error">❌ Error: ${mensaje}</div>`;
         }
 
-        // Generar inputs iniciales al cargar
-        window.onload = () => generarInputs();
+        function parsearRango(rango) {
+            const patron = /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)$/;
+            const match = rango.trim().match(patron);
+
+            if (!match) {
+                throw new Error(`Formato de rango inválido: ${rango}`);
+            }
+
+            const inicio = parseFloat(match[1]);
+            const fin = parseFloat(match[2]);
+
+            if (inicio >= fin) {
+                throw new Error(`El valor inicial debe ser menor que el final: ${rango}`);
+            }
+
+            return { inicio, fin };
+        }
+
+        // Agregar 5 clases iniciales al cargar
+        window.onload = () => {
+            for (let i = 0; i < 5; i++) {
+                agregarClase();
+            }
+        };
     </script>
 </body>
 </html>
