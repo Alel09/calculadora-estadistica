@@ -12,175 +12,189 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
             min-height: 100vh;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2c3e50;
             color: white;
-            padding: 30px;
-            text-align: center;
+            padding: 24px;
+            border-radius: 8px 8px 0 0;
         }
 
         .header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95em;
         }
 
         .content {
-            padding: 30px;
+            padding: 24px;
         }
 
-        .config-section {
-            background: #f8f9fa;
+        .section {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            border-radius: 6px;
+            margin-bottom: 20px;
         }
 
-        .config-section label {
-            display: block;
-            margin-bottom: 10px;
+        .section h3 {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 16px;
             font-weight: 600;
-            color: #333;
         }
 
-        .config-section input {
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        textarea,
+        select {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.2s;
         }
 
-        .config-section input:focus {
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: 'Courier New', monospace;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
-            border-color: #667eea;
-        }
-
-        .input-section {
-            margin-bottom: 30px;
+            border-color: #2c3e50;
         }
 
         .clase-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 12px;
             position: relative;
-            transition: opacity 0.3s, background 0.3s;
         }
 
         .clase-item.disabled {
             opacity: 0.5;
-            background: #e9ecef;
+            background: #f9f9f9;
         }
 
-        .clase-item .delete-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.3s;
+        .clase-item h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1em;
         }
 
-        .clase-item .delete-btn:hover {
-            background: #c82333;
-        }
-
-        .clase-item h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .input-group {
+        .input-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
-        .checkbox-group {
+        @media (max-width: 768px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .checkbox-wrapper {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            padding: 10px;
-            background: white;
-            border-radius: 6px;
+            gap: 8px;
+            padding: 8px;
+            background: #f9f9f9;
+            border-radius: 4px;
         }
 
-        .checkbox-group input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
             cursor: pointer;
         }
 
-        .checkbox-group label {
+        .checkbox-wrapper label {
             margin: 0;
             cursor: pointer;
             user-select: none;
         }
 
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2c3e50;
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 14px;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin: 5px;
+            transition: background 0.2s;
+            font-weight: 500;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            background: #34495e;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            padding: 6px 12px;
+            font-size: 13px;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: #7f8c8d;
         }
 
-        .btn-small {
-            padding: 8px 20px;
-            font-size: 14px;
+        .btn-secondary:hover {
+            background: #95a5a6;
+        }
+
+        .btn-info {
+            background: #3498db;
+            margin-top: 12px;
+        }
+
+        .btn-info:hover {
+            background: #2980b9;
         }
 
         .button-group {
@@ -190,109 +204,257 @@
             margin: 20px 0;
         }
 
+        @media (max-width: 768px) {
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .button-group .btn {
+                width: 100%;
+            }
+        }
+
         .results {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 24px;
+            border-radius: 6px;
+            margin-top: 24px;
         }
 
         .results h2 {
-            color: #667eea;
+            color: #2c3e50;
             margin-bottom: 20px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
+            font-size: 1.4em;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e0e0e0;
         }
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .result-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #fafafa;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
         }
 
         .result-item strong {
-            color: #667eea;
+            color: #2c3e50;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+        }
+
+        .result-item .value {
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 16px;
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
             width: 100%;
+            min-width: 600px;
             border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.75em;
+                min-width: 500px;
+            }
         }
 
         th, td {
-            padding: 12px;
+            padding: 12px 8px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 8px 6px;
+            }
         }
 
         th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2c3e50;
             color: white;
             font-weight: 600;
         }
 
         tr:hover {
-            background: #f5f5f5;
+            background: #f9f9f9;
         }
 
         .error {
             background: #fee;
             color: #c33;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
+            padding: 16px;
+            border-radius: 4px;
+            margin: 16px 0;
             border-left: 4px solid #c33;
-        }
-
-        .success {
-            background: #efe;
-            color: #3c3;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #3c3;
         }
 
         .stats-summary {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 16px;
             margin-top: 20px;
         }
 
+        @media (max-width: 768px) {
+            .stats-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .stat-card {
-            background: white;
+            background: #fafafa;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
             text-align: center;
         }
 
         .stat-card h4 {
-            color: #667eea;
+            color: #666;
             margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 0.9em;
+            font-weight: 500;
         }
 
         .stat-card .value {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .proceso {
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 16px;
+            font-size: 0.9em;
+        }
+
+        .proceso h3 {
+            color: #2c3e50;
+            margin: 20px 0 12px 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1.1em;
+        }
+
+        .proceso h4 {
+            color: #34495e;
+            margin: 16px 0 8px 0;
+            font-size: 1em;
+        }
+
+        .proceso p {
+            margin: 6px 0;
             color: #333;
+        }
+
+        .proceso .formula {
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 8px 0;
+            border-left: 3px solid #3498db;
+            font-family: 'Courier New', monospace;
+        }
+
+        .proceso .step {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .sesgada {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .insesgada {
+            color: #e67e22;
+            font-weight: 600;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 20px auto;
+            padding: 24px;
+            border-radius: 8px;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .datos-tabla {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .dato-item {
+            background: #f0f0f0;
+            padding: 8px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 500;
         }
 
         .hidden {
@@ -304,36 +466,71 @@
     <div class="container">
         <div class="header">
             <h1>📊 Calculadora Estadística</h1>
-            <p>Cuartiles, Deciles y Percentiles para Datos Agrupados</p>
+            <p>Cuartiles, Deciles, Percentiles y Desviación Estándar para Datos Agrupados</p>
         </div>
 
         <div class="content">
-            <div class="config-section">
+            <div class="section">
+                <h3>Configuración General</h3>
                 <label for="decimales">Número de decimales (0-10):</label>
                 <input type="number" id="decimales" min="0" max="10" value="2">
             </div>
 
-            <div class="config-section">
-                <label>Gestión de Clases</label>
-                <button class="btn" onclick="agregarClase()" style="margin-top: 15px;">➕ Agregar Clase</button>
+            <div id="seccionClases">
+                <div class="section">
+                    <h3>Gestión de Clases</h3>
+                    <button class="btn" onclick="agregarClase()">➕ Agregar Clase</button>
+                    <div id="inputClases" style="margin-top: 16px;"></div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn" onclick="calcularMedia()">Calcular Media</button>
+                    <button class="btn" onclick="calcularMediana()">Calcular Mediana</button>
+                    <button class="btn" onclick="calcularCuartiles()">Calcular Cuartiles</button>
+                    <button class="btn" onclick="calcularDeciles()">Calcular Deciles</button>
+                    <button class="btn btn-secondary" onclick="calcularPercentilPersonalizado()">Percentil Personalizado</button>
+                    <button class="btn btn-secondary" onclick="calcularDesviacionTabla()">Desviación Estándar (Tabla)</button>
+                    <button class="btn btn-secondary" onclick="mostrarTabla()">Tabla de Frecuencias</button>
+                    <button class="btn btn-secondary" onclick="cambiarADatos()">Cambiar a Datos Simples</button>
+                </div>
             </div>
 
-            <div id="inputClases" class="input-section"></div>
-
-            <div class="button-group">
-                <button class="btn" onclick="calcularCuartiles()">Calcular Cuartiles</button>
-                <button class="btn" onclick="calcularDeciles()">Calcular Deciles</button>
-                <button class="btn" onclick="calcularAmbos()">Cuartiles y Deciles</button>
-                <button class="btn btn-secondary" onclick="calcularPercentilPersonalizado()">Percentil Personalizado</button>
-                <button class="btn btn-secondary" onclick="mostrarTabla()">Mostrar Tabla de Frecuencias</button>
+            <div id="seccionDatos" class="hidden">
+                <div class="section">
+                    <h3>Ingreso de Datos Simples</h3>
+                    <label for="datosSimples">Ingresa los datos separados por comas (ej: 12,15,18,20,22):</label>
+                    <textarea id="datosSimples" placeholder="12,15,18,20,22,25,28,30"></textarea>
+                    <button class="btn" style="margin-top: 12px;" onclick="calcularDesviacionDatos()">Calcular Desviación Estándar</button>
+                    <button class="btn btn-secondary" style="margin-top: 12px;" onclick="cambiarAClases()">Volver a Clases</button>
+                </div>
             </div>
 
             <div id="resultados"></div>
         </div>
     </div>
 
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="cerrarModal()">&times;</button>
+            <div id="modalContenido"></div>
+        </div>
+    </div>
+
     <script>
         let contadorClases = 0;
+        let ultimoCalculo = null;
+
+        function cambiarADatos() {
+            document.getElementById('seccionClases').classList.add('hidden');
+            document.getElementById('seccionDatos').classList.remove('hidden');
+            document.getElementById('resultados').innerHTML = '';
+        }
+
+        function cambiarAClases() {
+            document.getElementById('seccionDatos').classList.add('hidden');
+            document.getElementById('seccionClases').classList.remove('hidden');
+            document.getElementById('resultados').innerHTML = '';
+        }
 
         function agregarClase() {
             const container = document.getElementById('inputClases');
@@ -341,9 +538,9 @@
             claseDiv.className = 'clase-item';
             claseDiv.id = `clase-${contadorClases}`;
             claseDiv.innerHTML = `
-                <button class="delete-btn" onclick="eliminarClase(${contadorClases})">🗑️ Eliminar</button>
-                <h3>Clase ${contadorClases + 1}</h3>
-                <div class="input-group">
+                <button class="btn btn-danger" onclick="eliminarClase(${contadorClases})">🗑️</button>
+                <h4>Clase ${contadorClases + 1}</h4>
+                <div class="input-grid">
                     <div>
                         <label>Rango (ej: 12-14):</label>
                         <input type="text" id="rango${contadorClases}" placeholder="12-14">
@@ -353,9 +550,9 @@
                         <input type="number" id="freq${contadorClases}" min="0" value="0">
                     </div>
                 </div>
-                <div class="checkbox-group">
+                <div class="checkbox-wrapper">
                     <input type="checkbox" id="incluir${contadorClases}" checked onchange="toggleClase(${contadorClases})">
-                    <label for="incluir${contadorClases}">✅ Incluir esta clase en los cálculos</label>
+                    <label for="incluir${contadorClases}">✓ Incluir en cálculos</label>
                 </div>
             `;
             container.appendChild(claseDiv);
@@ -364,9 +561,7 @@
 
         function eliminarClase(id) {
             const elemento = document.getElementById(`clase-${id}`);
-            if (elemento) {
-                elemento.remove();
-            }
+            if (elemento) elemento.remove();
         }
 
         function toggleClase(id) {
@@ -383,13 +578,12 @@
         function recopilarDatos() {
             const container = document.getElementById('inputClases');
             const clases = container.querySelectorAll('.clase-item');
-            datos = [];
+            const datos = [];
 
             clases.forEach((clase, index) => {
                 const id = clase.id.split('-')[1];
                 const checkbox = document.getElementById(`incluir${id}`);
                 
-                // Solo incluir si el checkbox está marcado
                 if (checkbox && checkbox.checked) {
                     const rangoInput = document.getElementById(`rango${id}`);
                     const freqInput = document.getElementById(`freq${id}`);
@@ -403,16 +597,34 @@
                         throw new Error(`Datos inválidos en la clase ${index + 1}`);
                     }
 
-                    parsearRango(rango); // Validar formato
+                    parsearRango(rango);
                     datos.push({ rango, frecuencia: freq });
                 }
             });
 
             if (datos.length === 0) {
-                throw new Error('No hay clases habilitadas para procesar. Marca al menos una clase.');
+                throw new Error('No hay clases habilitadas para procesar.');
             }
 
             return datos;
+        }
+
+        function parsearRango(rango) {
+            const patron = /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)$/;
+            const match = rango.trim().match(patron);
+
+            if (!match) {
+                throw new Error(`Formato de rango inválido: ${rango}`);
+            }
+
+            const inicio = parseFloat(match[1]);
+            const fin = parseFloat(match[2]);
+
+            if (inicio >= fin) {
+                throw new Error(`El valor inicial debe ser menor que el final: ${rango}`);
+            }
+
+            return { inicio, fin };
         }
 
         function calcularMarcaClase(rango) {
@@ -420,62 +632,184 @@
             return (inicio + fin) / 2;
         }
 
-        function calcularPercentiles(datos, percentiles) {
-            const decimales = parseInt(document.getElementById('decimales').value);
-            const n = datos.reduce((sum, d) => sum + d.frecuencia, 0);
-            
-            if (n === 0) throw new Error('La suma de frecuencias no puede ser cero');
+        function calcularMedia() {
+            try {
+                const datos = recopilarDatos();
+                const decimales = parseInt(document.getElementById('decimales').value);
+                
+                let sumaFM = 0;
+                let sumaF = 0;
+                const pasos = [];
+                
+                pasos.push('<h3>Cálculo de la Media</h3>');
+                pasos.push('<div class="formula">Media = Σ(f × m) / Σf</div>');
+                pasos.push('<h4>Paso 1: Calcular f × m para cada clase</h4>');
+                
+                datos.forEach((dato, i) => {
+                    const marca = calcularMarcaClase(dato.rango);
+                    const fm = dato.frecuencia * marca;
+                    sumaFM += fm;
+                    sumaF += dato.frecuencia;
+                    
+                    pasos.push(`<div class="step"><p>Clase ${i + 1}: ${dato.rango}, f = ${dato.frecuencia}</p>`);
+                    pasos.push(`<p>m = (${parsearRango(dato.rango).inicio} + ${parsearRango(dato.rango).fin}) / 2 = ${marca.toFixed(decimales)}</p>`);
+                    pasos.push(`<p>f × m = ${dato.frecuencia} × ${marca.toFixed(decimales)} = ${fm.toFixed(decimales)}</p></div>`);
+                });
+                
+                const media = sumaFM / sumaF;
+                
+                pasos.push('<h4>Paso 2: Calcular la media</h4>');
+                pasos.push(`<div class="step"><p>Σ(f × m) = ${sumaFM.toFixed(decimales)}</p>`);
+                pasos.push(`<p>Σf = ${sumaF}</p>`);
+                pasos.push(`<p><strong>Media = ${sumaFM.toFixed(decimales)} / ${sumaF} = ${media.toFixed(decimales)}</strong></p></div>`);
+                
+                ultimoCalculo = { tipo: 'media', pasos: pasos };
+                
+                let html = '<div class="results"><h2>📊 MEDIA</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
+                html += `<div class="stat-card" style="margin-top: 16px;"><h4>Valor</h4><div class="value">${media.toFixed(decimales)}</div></div>`;
+                html += '</div>';
+                
+                document.getElementById('resultados').innerHTML = html;
+            } catch (error) {
+                mostrarError(error.message);
+            }
+        }
 
-            const resultados = [];
-
-            for (const p of percentiles) {
-                if (p <= 0 || p > 1) {
-                    throw new Error(`El percentil debe estar entre 0 y 1: ${p}`);
-                }
-
-                const pos = p * n;
+        function calcularMediana() {
+            try {
+                const datos = recopilarDatos();
+                const decimales = parseInt(document.getElementById('decimales').value);
+                
+                const n = datos.reduce((sum, d) => sum + d.frecuencia, 0);
+                const posicionMediana = n / 2;
+                
+                const pasos = [];
+                pasos.push('<h3>Cálculo de la Mediana</h3>');
+                pasos.push('<div class="formula">Posición = n / 2</div>');
+                pasos.push(`<div class="step"><p><strong>Paso 1:</strong> n / 2 = ${n} / 2 = ${posicionMediana}</p></div>`);
+                
                 let acumulado = 0;
-                let encontrado = false;
-
-                for (const dato of datos) {
-                    const acumuladoAnterior = acumulado;
-                    acumulado += dato.frecuencia;
-
-                    if (acumulado >= pos) {
-                        const { inicio, fin } = parsearRango(dato.rango);
-                        let valor;
-
-                        if (acumuladoAnterior >= pos) {
-                            valor = inicio;
-                        } else {
-                            const amplitud = fin - inicio;
-                            const factor = (pos - acumuladoAnterior) / dato.frecuencia;
-                            valor = inicio + (factor * amplitud);
-                        }
-
-                        resultados.push(parseFloat(valor.toFixed(decimales)));
-                        encontrado = true;
+                let claseMediana = null;
+                let acumuladoAnterior = 0;
+                
+                for (let i = 0; i < datos.length; i++) {
+                    const acumAntes = acumulado;
+                    acumulado += datos[i].frecuencia;
+                    
+                    if (acumulado >= posicionMediana && !claseMediana) {
+                        claseMediana = i;
+                        acumuladoAnterior = acumAntes;
                         break;
                     }
                 }
-
-                if (!encontrado) {
-                    const { fin } = parsearRango(datos[datos.length - 1].rango);
-                    resultados.push(parseFloat(fin.toFixed(decimales)));
-                }
+                
+                const dato = datos[claseMediana];
+                const { inicio, fin } = parsearRango(dato.rango);
+                const frecuenciaClase = dato.frecuencia;
+                
+                pasos.push(`<h4>Clase de la mediana: ${dato.rango}</h4>`);
+                pasos.push(`<div class="step"><p>Frecuencia acumulada anterior = ${acumuladoAnterior}</p></div>`);
+                
+                const valorPaso2 = posicionMediana - acumuladoAnterior;
+                pasos.push(`<div class="step"><p><strong>Paso 2:</strong> ${posicionMediana} - ${acumuladoAnterior} = ${valorPaso2}</p></div>`);
+                
+                const porcentaje = (valorPaso2 / frecuenciaClase) * 100;
+                pasos.push(`<div class="step"><p><strong>Paso 3 (Regla de 3):</strong></p>`);
+                pasos.push(`<p>Si ${frecuenciaClase} → 100%</p>`);
+                pasos.push(`<p>Entonces ${valorPaso2.toFixed(decimales)} → x%</p>`);
+                pasos.push(`<p>x = (${valorPaso2.toFixed(decimales)} × 100) / ${frecuenciaClase} = ${porcentaje.toFixed(decimales)}%</p></div>`);
+                
+                const amplitud = fin - inicio;
+                const y = (porcentaje / 100) * amplitud;
+                pasos.push(`<div class="step"><p><strong>Paso 4:</strong> Distancia de la clase = ${fin} - ${inicio} = ${amplitud}</p>`);
+                pasos.push(`<p>Si ${amplitud} → 100%</p>`);
+                pasos.push(`<p>Entonces y → ${porcentaje.toFixed(decimales)}%</p>`);
+                pasos.push(`<p>y = (${porcentaje.toFixed(decimales)} × ${amplitud}) / 100 = ${y.toFixed(decimales)}</p></div>`);
+                
+                const mediana = inicio + y;
+                pasos.push(`<div class="step"><p><strong>Paso 5:</strong> Mediana = ${inicio} + ${y.toFixed(decimales)} = ${mediana.toFixed(decimales)}</p></div>`);
+                
+                ultimoCalculo = { tipo: 'mediana', pasos: pasos };
+                
+                let html = '<div class="results"><h2>📊 MEDIANA</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
+                html += `<div class="stat-card" style="margin-top: 16px;"><h4>Valor</h4><div class="value">${mediana.toFixed(decimales)}</div></div>`;
+                html += '</div>';
+                
+                document.getElementById('resultados').innerHTML = html;
+            } catch (error) {
+                mostrarError(error.message);
             }
-
-            return resultados;
         }
 
         function calcularCuartiles() {
             try {
                 const datos = recopilarDatos();
-                const cuartiles = calcularPercentiles(datos, [0.25, 0.5, 0.75, 1.0]);
+                const decimales = parseInt(document.getElementById('decimales').value);
+                const n = datos.reduce((sum, d) => sum + d.frecuencia, 0);
                 
-                let html = '<div class="results"><h2>📈 CUARTILES</h2><div class="results-grid">';
+                const cuartiles = [];
+                const pasosTodos = [];
+                
+                for (let q = 1; q <= 4; q++) {
+                    const pasos = [];
+                    pasos.push(`<h3>Cálculo del Cuartil ${q}</h3>`);
+                    pasos.push('<div class="formula">Paso 1: n / 4</div>');
+                    const paso1 = n / 4;
+                    pasos.push(`<div class="step"><p>${n} / 4 = ${paso1}</p></div>`);
+                    
+                    pasos.push(`<div class="formula">Paso 1.5: Resultado × ${q}</div>`);
+                    const posicion = paso1 * q;
+                    pasos.push(`<div class="step"><p>${paso1} × ${q} = ${posicion}</p></div>`);
+                    
+                    let acumulado = 0;
+                    let claseEncontrada = null;
+                    let acumuladoAnterior = 0;
+                    
+                    for (let i = 0; i < datos.length; i++) {
+                        const acumAntes = acumulado;
+                        acumulado += datos[i].frecuencia;
+                        
+                        if (acumulado >= posicion && !claseEncontrada) {
+                            claseEncontrada = i;
+                            acumuladoAnterior = acumAntes;
+                            break;
+                        }
+                    }
+                    
+                    const dato = datos[claseEncontrada];
+                    const { inicio, fin } = parsearRango(dato.rango);
+                    const frecuenciaClase = dato.frecuencia;
+                    
+                    pasos.push(`<h4>Clase encontrada: ${dato.rango}</h4>`);
+                    
+                    const valorPaso2 = posicion - acumuladoAnterior;
+                    pasos.push(`<div class="step"><p><strong>Paso 2:</strong> ${posicion} - ${acumuladoAnterior} = ${valorPaso2}</p></div>`);
+                    
+                    const porcentaje = (valorPaso2 / frecuenciaClase) * 100;
+                    pasos.push(`<div class="step"><p><strong>Paso 3:</strong> Regla de 3</p>`);
+                    pasos.push(`<p>${frecuenciaClase} → 100%, ${valorPaso2.toFixed(decimales)} → ${porcentaje.toFixed(decimales)}%</p></div>`);
+                    
+                    const amplitud = fin - inicio;
+                    const y = (porcentaje / 100) * amplitud;
+                    pasos.push(`<div class="step"><p><strong>Paso 4:</strong> Amplitud = ${amplitud}</p>`);
+                    pasos.push(`<p>y = (${porcentaje.toFixed(decimales)} × ${amplitud}) / 100 = ${y.toFixed(decimales)}</p></div>`);
+                    
+                    const cuartil = inicio + y;
+                    pasos.push(`<div class="step"><p><strong>Paso 5:</strong> Q${q} = ${inicio} + ${y.toFixed(decimales)} = ${cuartil.toFixed(decimales)}</p></div>`);
+                    
+                    cuartiles.push(cuartil.toFixed(decimales));
+                    pasosTodos.push(pasos.join(''));
+                }
+                
+                ultimoCalculo = { tipo: 'cuartiles', valores: cuartiles, pasos: pasosTodos };
+                
+                let html = '<div class="results"><h2>📈 CUARTILES</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
+                html += '<div class="results-grid">';
                 cuartiles.forEach((valor, i) => {
-                    html += `<div class="result-item"><strong>Q${i + 1}:</strong> ${valor}</div>`;
+                    html += `<div class="result-item"><strong>Q${i + 1}</strong><div class="value">${valor}</div></div>`;
                 });
                 html += '</div></div>';
                 
@@ -488,36 +822,70 @@
         function calcularDeciles() {
             try {
                 const datos = recopilarDatos();
-                const deciles = calcularPercentiles(datos, Array.from({length: 10}, (_, i) => (i + 1) / 10));
+                const decimales = parseInt(document.getElementById('decimales').value);
+                const n = datos.reduce((sum, d) => sum + d.frecuencia, 0);
                 
-                let html = '<div class="results"><h2>📈 DECILES</h2><div class="results-grid">';
+                const deciles = [];
+                const pasosTodos = [];
+                
+                for (let d = 1; d <= 10; d++) {
+                    const pasos = [];
+                    pasos.push(`<h3>Cálculo del Decil ${d}</h3>`);
+                    pasos.push('<div class="formula">Paso 1: n / 10</div>');
+                    const paso1 = n / 10;
+                    pasos.push(`<div class="step"><p>${n} / 10 = ${paso1}</p></div>`);
+                    
+                    pasos.push(`<div class="formula">Paso 1.5: Resultado × ${d}</div>`);
+                    const posicion = paso1 * d;
+                    pasos.push(`<div class="step"><p>${paso1} × ${d} = ${posicion}</p></div>`);
+                    
+                    let acumulado = 0;
+                    let claseEncontrada = null;
+                    let acumuladoAnterior = 0;
+                    
+                    for (let i = 0; i < datos.length; i++) {
+                        const acumAntes = acumulado;
+                        acumulado += datos[i].frecuencia;
+                        
+                        if (acumulado >= posicion && !claseEncontrada) {
+                            claseEncontrada = i;
+                            acumuladoAnterior = acumAntes;
+                            break;
+                        }
+                    }
+                    
+                    const dato = datos[claseEncontrada];
+                    const { inicio, fin } = parsearRango(dato.rango);
+                    const frecuenciaClase = dato.frecuencia;
+                    
+                    pasos.push(`<h4>Clase encontrada: ${dato.rango}</h4>`);
+                    
+                    const valorPaso2 = posicion - acumuladoAnterior;
+                    pasos.push(`<div class="step"><p><strong>Paso 2:</strong> ${posicion} - ${acumuladoAnterior} = ${valorPaso2}</p></div>`);
+                    
+                    const porcentaje = (valorPaso2 / frecuenciaClase) * 100;
+                    pasos.push(`<div class="step"><p><strong>Paso 3:</strong> Regla de 3</p>`);
+                    pasos.push(`<p>${frecuenciaClase} → 100%, ${valorPaso2.toFixed(decimales)} → ${porcentaje.toFixed(decimales)}%</p></div>`);
+                    
+                    const amplitud = fin - inicio;
+                    const y = (porcentaje / 100) * amplitud;
+                    pasos.push(`<div class="step"><p><strong>Paso 4:</strong> Amplitud = ${amplitud}</p>`);
+                    pasos.push(`<p>y = (${porcentaje.toFixed(decimales)} × ${amplitud}) / 100 = ${y.toFixed(decimales)}</p></div>`);
+                    
+                    const decil = inicio + y;
+                    pasos.push(`<div class="step"><p><strong>Paso 5:</strong> D${d} = ${inicio} + ${y.toFixed(decimales)} = ${decil.toFixed(decimales)}</p></div>`);
+                    
+                    deciles.push(decil.toFixed(decimales));
+                    pasosTodos.push(pasos.join(''));
+                }
+                
+                ultimoCalculo = { tipo: 'deciles', valores: deciles, pasos: pasosTodos };
+                
+                let html = '<div class="results"><h2>📈 DECILES</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
+                html += '<div class="results-grid">';
                 deciles.forEach((valor, i) => {
-                    html += `<div class="result-item"><strong>D${i + 1}:</strong> ${valor}</div>`;
-                });
-                html += '</div></div>';
-                
-                document.getElementById('resultados').innerHTML = html;
-            } catch (error) {
-                mostrarError(error.message);
-            }
-        }
-
-        function calcularAmbos() {
-            try {
-                const datos = recopilarDatos();
-                const cuartiles = calcularPercentiles(datos, [0.25, 0.5, 0.75, 1.0]);
-                const deciles = calcularPercentiles(datos, Array.from({length: 10}, (_, i) => (i + 1) / 10));
-                
-                let html = '<div class="results">';
-                html += '<h2>📈 CUARTILES</h2><div class="results-grid">';
-                cuartiles.forEach((valor, i) => {
-                    html += `<div class="result-item"><strong>Q${i + 1}:</strong> ${valor}</div>`;
-                });
-                html += '</div>';
-                
-                html += '<h2 style="margin-top: 30px;">📈 DECILES</h2><div class="results-grid">';
-                deciles.forEach((valor, i) => {
-                    html += `<div class="result-item"><strong>D${i + 1}:</strong> ${valor}</div>`;
+                    html += `<div class="result-item"><strong>D${i + 1}</strong><div class="value">${valor}</div></div>`;
                 });
                 html += '</div></div>';
                 
@@ -539,10 +907,60 @@
 
             try {
                 const datos = recopilarDatos();
-                const resultado = calcularPercentiles(datos, [percentil / 100]);
+                const decimales = parseInt(document.getElementById('decimales').value);
+                const n = datos.reduce((sum, d) => sum + d.frecuencia, 0);
+                
+                const pasos = [];
+                pasos.push(`<h3>Cálculo del Percentil ${percentil}</h3>`);
+                pasos.push('<div class="formula">Paso 1: n / 100</div>');
+                const paso1 = n / 100;
+                pasos.push(`<div class="step"><p>${n} / 100 = ${paso1}</p></div>`);
+                
+                pasos.push(`<div class="formula">Paso 1.5: Resultado × ${percentil}</div>`);
+                const posicion = paso1 * percentil;
+                pasos.push(`<div class="step"><p>${paso1} × ${percentil} = ${posicion}</p></div>`);
+                
+                let acumulado = 0;
+                let claseEncontrada = null;
+                let acumuladoAnterior = 0;
+                
+                for (let i = 0; i < datos.length; i++) {
+                    const acumAntes = acumulado;
+                    acumulado += datos[i].frecuencia;
+                    
+                    if (acumulado >= posicion && !claseEncontrada) {
+                        claseEncontrada = i;
+                        acumuladoAnterior = acumAntes;
+                        break;
+                    }
+                }
+                
+                const dato = datos[claseEncontrada];
+                const { inicio, fin } = parsearRango(dato.rango);
+                const frecuenciaClase = dato.frecuencia;
+                
+                pasos.push(`<h4>Clase encontrada: ${dato.rango}</h4>`);
+                
+                const valorPaso2 = posicion - acumuladoAnterior;
+                pasos.push(`<div class="step"><p><strong>Paso 2:</strong> ${posicion} - ${acumuladoAnterior} = ${valorPaso2}</p></div>`);
+                
+                const porcentaje = (valorPaso2 / frecuenciaClase) * 100;
+                pasos.push(`<div class="step"><p><strong>Paso 3:</strong> Regla de 3</p>`);
+                pasos.push(`<p>${frecuenciaClase} → 100%, ${valorPaso2.toFixed(decimales)} → ${porcentaje.toFixed(decimales)}%</p></div>`);
+                
+                const amplitud = fin - inicio;
+                const y = (porcentaje / 100) * amplitud;
+                pasos.push(`<div class="step"><p><strong>Paso 4:</strong> Amplitud = ${amplitud}</p>`);
+                pasos.push(`<p>y = (${porcentaje.toFixed(decimales)} × ${amplitud}) / 100 = ${y.toFixed(decimales)}</p></div>`);
+                
+                const resultado = inicio + y;
+                pasos.push(`<div class="step"><p><strong>Paso 5:</strong> P${percentil} = ${inicio} + ${y.toFixed(decimales)} = ${resultado.toFixed(decimales)}</p></div>`);
+                
+                ultimoCalculo = { tipo: 'percentil', pasos: pasos };
                 
                 const html = `<div class="results"><h2>📈 PERCENTIL ${percentil}</h2>
-                    <div class="stat-card"><h4>Valor</h4><div class="value">${resultado[0]}</div></div></div>`;
+                    <button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>
+                    <div class="stat-card" style="margin-top: 16px;"><h4>Valor</h4><div class="value">${resultado.toFixed(decimales)}</div></div></div>`;
                 
                 document.getElementById('resultados').innerHTML = html;
             } catch (error) {
@@ -550,46 +968,76 @@
             }
         }
 
-        function mostrarTabla() {
+        function calcularDesviacionTabla() {
             try {
                 const datos = recopilarDatos();
                 const decimales = parseInt(document.getElementById('decimales').value);
                 
-                let html = '<div class="results"><h2>📊 TABLA DE FRECUENCIAS</h2>';
-                html += '<table><thead><tr><th>Clase</th><th>Frecuencia</th><th>Frec. Acum.</th><th>Marca Clase</th><th>f × m</th></tr></thead><tbody>';
-                
-                let acumulado = 0;
                 let sumaFM = 0;
+                let sumaF = 0;
+                let sumaFM2 = 0;
+                const pasos = [];
                 
-                datos.forEach(dato => {
-                    acumulado += dato.frecuencia;
+                pasos.push('<h3>Desviación Estándar con Tabla de Frecuencias</h3>');
+                pasos.push('<h4>Cálculo de la Media</h4>');
+                
+                datos.forEach((dato, i) => {
                     const marca = calcularMarcaClase(dato.rango);
                     const fm = dato.frecuencia * marca;
+                    const m2 = marca * marca;
+                    const fm2 = dato.frecuencia * m2;
                     sumaFM += fm;
+                    sumaF += dato.frecuencia;
+                    sumaFM2 += fm2;
                     
-                    html += `<tr>
-                        <td>${dato.rango}</td>
-                        <td>${dato.frecuencia}</td>
-                        <td>${acumulado}</td>
-                        <td>${marca.toFixed(decimales)}</td>
-                        <td>${fm.toFixed(decimales)}</td>
-                    </tr>`;
+                    pasos.push(`<div class="step"><p>Clase ${i + 1}: ${dato.rango}, f = ${dato.frecuencia}</p>`);
+                    pasos.push(`<p>m = ${marca.toFixed(decimales)}, f × m = ${fm.toFixed(decimales)}</p>`);
+                    pasos.push(`<p>m² = ${m2.toFixed(decimales)}, f × m² = ${fm2.toFixed(decimales)}</p></div>`);
                 });
                 
-                html += `<tr style="font-weight: bold; background: #f0f0f0;">
-                    <td>Total</td>
-                    <td>${acumulado}</td>
-                    <td></td>
-                    <td></td>
-                    <td>${sumaFM.toFixed(decimales)}</td>
-                </tr></tbody></table>`;
+                const media = sumaFM / sumaF;
+                pasos.push(`<div class="step"><p><strong>Media = Σ(f × m) / Σf = ${sumaFM.toFixed(decimales)} / ${sumaF} = ${media.toFixed(decimales)}</strong></p></div>`);
                 
-                const media = sumaFM / acumulado;
-                const mediana = calcularPercentiles(datos, [0.5])[0];
+                // Desviación Sesgada
+                pasos.push('<h3 class="sesgada">DESVIACIÓN ESTÁNDAR SESGADA (σ)</h3>');
+                pasos.push('<div class="formula sesgada">Paso 1: Σ(f × m²) / n</div>');
+                const paso1Sesgada = sumaFM2 / sumaF;
+                pasos.push(`<div class="step"><p>${sumaFM2.toFixed(decimales)} / ${sumaF} = ${paso1Sesgada.toFixed(decimales)}</p></div>`);
                 
+                pasos.push('<div class="formula sesgada">Paso 2: Resultado Paso 1 - (media)²</div>');
+                const varianzaSesgada = paso1Sesgada - (media * media);
+                pasos.push(`<div class="step"><p>${paso1Sesgada.toFixed(decimales)} - ${media.toFixed(decimales)}² = ${paso1Sesgada.toFixed(decimales)} - ${(media * media).toFixed(decimales)} = ${varianzaSesgada.toFixed(decimales)}</p>`);
+                pasos.push(`<p><strong>Varianza Sesgada = ${varianzaSesgada.toFixed(decimales)}</strong></p></div>`);
+                
+                pasos.push('<div class="formula sesgada">Paso 3: D.E.S = √Varianza</div>');
+                const desviacionSesgada = Math.sqrt(varianzaSesgada);
+                pasos.push(`<div class="step"><p><strong class="sesgada">D.E. Sesgada (σ) = √${varianzaSesgada.toFixed(decimales)} = ${desviacionSesgada.toFixed(decimales)}</strong></p></div>`);
+                
+                // Desviación Insesgada
+                pasos.push('<h3 class="insesgada">DESVIACIÓN ESTÁNDAR INSESGADA (s)</h3>');
+                pasos.push('<div class="formula insesgada">Paso 1: Σ(f × m²) / (n - 1)</div>');
+                const paso1Insesgada = sumaFM2 / (sumaF - 1);
+                pasos.push(`<div class="step"><p>${sumaFM2.toFixed(decimales)} / (${sumaF} - 1) = ${sumaFM2.toFixed(decimales)} / ${sumaF - 1} = ${paso1Insesgada.toFixed(decimales)}</p></div>`);
+                
+                pasos.push('<div class="formula insesgada">Paso 2: Resultado Paso 1 - (media)²</div>');
+                const varianzaInsesgada = paso1Insesgada - (media * media);
+                pasos.push(`<div class="step"><p>${paso1Insesgada.toFixed(decimales)} - ${media.toFixed(decimales)}² = ${paso1Insesgada.toFixed(decimales)} - ${(media * media).toFixed(decimales)} = ${varianzaInsesgada.toFixed(decimales)}</p>`);
+                pasos.push(`<p><strong>Varianza Insesgada = ${varianzaInsesgada.toFixed(decimales)}</strong></p></div>`);
+                
+                pasos.push('<div class="formula insesgada">Paso 3: D.E.I = √Varianza</div>');
+                const desviacionInsesgada = Math.sqrt(varianzaInsesgada);
+                pasos.push(`<div class="step"><p><strong class="insesgada">D.E. Insesgada (s) = √${varianzaInsesgada.toFixed(decimales)} = ${desviacionInsesgada.toFixed(decimales)}</strong></p></div>`);
+                
+                ultimoCalculo = { tipo: 'desviacionTabla', pasos: pasos };
+                
+                let html = '<div class="results"><h2>📊 DESVIACIÓN ESTÁNDAR (TABLA)</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
                 html += '<div class="stats-summary">';
                 html += `<div class="stat-card"><h4>Media</h4><div class="value">${media.toFixed(decimales)}</div></div>`;
-                html += `<div class="stat-card"><h4>Mediana</h4><div class="value">${mediana}</div></div>`;
+                html += `<div class="stat-card"><h4 class="sesgada">D.E. Sesgada (σ)</h4><div class="value sesgada">${desviacionSesgada.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4 class="insesgada">D.E. Insesgada (s)</h4><div class="value insesgada">${desviacionInsesgada.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4>Varianza Sesgada</h4><div class="value">${varianzaSesgada.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4>Varianza Insesgada</h4><div class="value">${varianzaInsesgada.toFixed(decimales)}</div></div>`;
                 html += '</div></div>';
                 
                 document.getElementById('resultados').innerHTML = html;
@@ -598,30 +1046,241 @@
             }
         }
 
+        function calcularDesviacionDatos() {
+            try {
+                const input = document.getElementById('datosSimples').value;
+                if (!input.trim()) {
+                    throw new Error('Debes ingresar datos');
+                }
+                
+                const datosArray = input.split(',').map(d => parseFloat(d.trim())).filter(d => !isNaN(d));
+                
+                if (datosArray.length === 0) {
+                    throw new Error('No se encontraron datos válidos');
+                }
+                
+                const decimales = parseInt(document.getElementById('decimales').value);
+                const n = datosArray.length;
+                
+                const pasos = [];
+                
+                // Paso 1: Mostrar datos y calcular media
+                pasos.push('<h3>Desviación Estándar con Datos Simples</h3>');
+                pasos.push('<h4>Paso 1: Datos y cálculo de la media</h4>');
+                pasos.push('<div class="datos-tabla">');
+                datosArray.forEach((d, i) => {
+                    pasos.push(`<div class="dato-item">${d}</div>`);
+                });
+                pasos.push('</div>');
+                
+                const suma = datosArray.reduce((acc, d) => acc + d, 0);
+                const media = suma / n;
+                pasos.push(`<div class="step"><p>Suma = ${suma.toFixed(decimales)}</p>`);
+                pasos.push(`<p><strong>Media = ${suma.toFixed(decimales)} / ${n} = ${media.toFixed(decimales)}</strong></p></div>`);
+                
+                // Paso 2: Desviaciones
+                pasos.push('<h4>Paso 2: Dato - Media = Desviación</h4>');
+                pasos.push('<div style="overflow-x: auto;"><table><thead><tr><th>Dato</th><th>Media</th><th>Desviación</th></tr></thead><tbody>');
+                const desviaciones = [];
+                datosArray.forEach((d, i) => {
+                    const desv = d - media;
+                    desviaciones.push(desv);
+                    pasos.push(`<tr><td>${d}</td><td>${media.toFixed(decimales)}</td><td>${desv.toFixed(decimales)}</td></tr>`);
+                });
+                pasos.push('</tbody></table></div>');
+                
+                // Paso 3: Cuadrados
+                pasos.push('<h4>Paso 3: Cuadrado de cada desviación</h4>');
+                pasos.push('<div style="overflow-x: auto;"><table><thead><tr><th>Desviación</th><th>Desviación²</th></tr></thead><tbody>');
+                const cuadrados = [];
+                let sumaCuadrados = 0;
+                desviaciones.forEach((desv, i) => {
+                    const cuad = desv * desv;
+                    cuadrados.push(cuad);
+                    sumaCuadrados += cuad;
+                    pasos.push(`<tr><td>${desv.toFixed(decimales)}</td><td>${cuad.toFixed(decimales)}</td></tr>`);
+                });
+                pasos.push(`<tr style="font-weight: bold; background: #f0f0f0;"><td>Σ</td><td>${sumaCuadrados.toFixed(decimales)}</td></tr>`);
+                pasos.push('</tbody></table></div>');
+                
+                // Paso 4 y 5 Sesgada
+                pasos.push('<h3 class="sesgada">DESVIACIÓN ESTÁNDAR SESGADA (σ)</h3>');
+                pasos.push('<div class="formula sesgada">Paso 4: Varianza = Σ(desviaciones²) / n</div>');
+                const varianzaSesgada = sumaCuadrados / n;
+                pasos.push(`<div class="step"><p>Varianza = ${sumaCuadrados.toFixed(decimales)} / ${n} = ${varianzaSesgada.toFixed(decimales)}</p></div>`);
+                
+                pasos.push('<div class="formula sesgada">Paso 5: D.E. = √Varianza</div>');
+                const desviacionSesgada = Math.sqrt(varianzaSesgada);
+                pasos.push(`<div class="step"><p><strong class="sesgada">D.E. Sesgada (σ) = √${varianzaSesgada.toFixed(decimales)} = ${desviacionSesgada.toFixed(decimales)}</strong></p></div>`);
+                
+                // Paso 4 y 5 Insesgada
+                pasos.push('<h3 class="insesgada">DESVIACIÓN ESTÁNDAR INSESGADA (s)</h3>');
+                pasos.push('<div class="formula insesgada">Paso 4: Varianza = Σ(desviaciones²) / (n - 1)</div>');
+                const varianzaInsesgada = sumaCuadrados / (n - 1);
+                pasos.push(`<div class="step"><p>Varianza = ${sumaCuadrados.toFixed(decimales)} / (${n} - 1) = ${sumaCuadrados.toFixed(decimales)} / ${n - 1} = ${varianzaInsesgada.toFixed(decimales)}</p></div>`);
+                
+                pasos.push('<div class="formula insesgada">Paso 5: D.E. = √Varianza</div>');
+                const desviacionInsesgada = Math.sqrt(varianzaInsesgada);
+                pasos.push(`<div class="step"><p><strong class="insesgada">D.E. Insesgada (s) = √${varianzaInsesgada.toFixed(decimales)} = ${desviacionInsesgada.toFixed(decimales)}</strong></p></div>`);
+                
+                ultimoCalculo = { tipo: 'desviacionDatos', pasos: pasos };
+                
+                let html = '<div class="results"><h2>📊 DESVIACIÓN ESTÁNDAR (DATOS)</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
+                html += '<div class="stats-summary">';
+                html += `<div class="stat-card"><h4>n (Datos)</h4><div class="value">${n}</div></div>`;
+                html += `<div class="stat-card"><h4>Media</h4><div class="value">${media.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4 class="sesgada">D.E. Sesgada (σ)</h4><div class="value sesgada">${desviacionSesgada.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4 class="insesgada">D.E. Insesgada (s)</h4><div class="value insesgada">${desviacionInsesgada.toFixed(decimales)}</div></div>`;
+                html += '</div></div>';
+                
+                document.getElementById('resultados').innerHTML = html;
+            } catch (error) {
+                mostrarError(error.message);
+            }
+        }
+
+        function mostrarTabla() {
+            const opcion = prompt('¿Qué columnas deseas incluir?\n1 - Básico (m, f×m)\n2 - Completo (m, f×m, m², f×m²)\n\nIngresa 1 o 2:');
+            
+            if (!opcion || (opcion !== '1' && opcion !== '2')) {
+                if (opcion !== null) mostrarError('Opción inválida. Elige 1 o 2.');
+                return;
+            }
+
+            try {
+                const datos = recopilarDatos();
+                const decimales = parseInt(document.getElementById('decimales').value);
+                const completo = opcion === '2';
+                
+                const pasos = [];
+                pasos.push('<h3>Construcción de la Tabla de Frecuencias</h3>');
+                
+                let html = '<div class="results"><h2>📊 TABLA DE FRECUENCIAS</h2>';
+                html += '<button class="btn btn-info" onclick="mostrarProceso()">🔍 Ver Proceso Detallado</button>';
+                html += '<div style="overflow-x: auto;"><table><thead><tr><th>Clase</th><th>Frecuencia (f)</th><th>Frec. Acum.</th><th>Marca (m)</th><th>f × m</th>';
+                
+                if (completo) {
+                    html += '<th>m²</th><th>f × m²</th>';
+                }
+                
+                html += '</tr></thead><tbody>';
+                
+                let acumulado = 0;
+                let sumaFM = 0;
+                let sumaFM2 = 0;
+                
+                datos.forEach((dato, i) => {
+                    acumulado += dato.frecuencia;
+                    const marca = calcularMarcaClase(dato.rango);
+                    const fm = dato.frecuencia * marca;
+                    const m2 = marca * marca;
+                    const fm2 = dato.frecuencia * m2;
+                    sumaFM += fm;
+                    sumaFM2 += fm2;
+                    
+                    pasos.push(`<div class="step"><p><strong>Clase ${i + 1}:</strong> ${dato.rango}</p>`);
+                    pasos.push(`<p>Marca = (${parsearRango(dato.rango).inicio} + ${parsearRango(dato.rango).fin}) / 2 = ${marca.toFixed(decimales)}</p>`);
+                    pasos.push(`<p>f × m = ${dato.frecuencia} × ${marca.toFixed(decimales)} = ${fm.toFixed(decimales)}</p>`);
+                    
+                    if (completo) {
+                        pasos.push(`<p>m² = ${m2.toFixed(decimales)}</p>`);
+                        pasos.push(`<p>f × m² = ${dato.frecuencia} × ${m2.toFixed(decimales)} = ${fm2.toFixed(decimales)}</p>`);
+                    }
+                    pasos.push(`<p>Frecuencia acumulada = ${acumulado}</p></div>`);
+                    
+                    html += `<tr>
+                        <td>${dato.rango}</td>
+                        <td>${dato.frecuencia}</td>
+                        <td>${acumulado}</td>
+                        <td>${marca.toFixed(decimales)}</td>
+                        <td>${fm.toFixed(decimales)}</td>`;
+                    
+                    if (completo) {
+                        html += `<td>${m2.toFixed(decimales)}</td>
+                        <td>${fm2.toFixed(decimales)}</td>`;
+                    }
+                    
+                    html += '</tr>';
+                });
+                
+                html += `<tr style="font-weight: bold; background: #f0f0f0;">
+                    <td>Total</td>
+                    <td>${acumulado}</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>${sumaFM.toFixed(decimales)}</td>`;
+                
+                if (completo) {
+                    html += `<td>—</td>
+                    <td>${sumaFM2.toFixed(decimales)}</td>`;
+                }
+                
+                html += '</tr></tbody></table></div>';
+                
+                const media = sumaFM / acumulado;
+                
+                html += '<div class="stats-summary">';
+                html += `<div class="stat-card"><h4>n</h4><div class="value">${acumulado}</div></div>`;
+                html += `<div class="stat-card"><h4>Media</h4><div class="value">${media.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4>Σ(f × m)</h4><div class="value">${sumaFM.toFixed(decimales)}</div></div>`;
+                
+                if (completo) {
+                    html += `<div class="stat-card"><h4>Σ(f × m²)</h4><div class="value">${sumaFM2.toFixed(decimales)}</div></div>`;
+                }
+                
+                html += '</div></div>';
+                
+                ultimoCalculo = { tipo: 'tabla', pasos: pasos };
+                
+                document.getElementById('resultados').innerHTML = html;
+            } catch (error) {
+                mostrarError(error.message);
+            }
+        }
+
+        function mostrarProceso() {
+            if (!ultimoCalculo) {
+                alert('No hay cálculos disponibles para mostrar.');
+                return;
+            }
+
+            let contenido = '<h2>📝 Proceso Detallado de Cálculo</h2><div class="proceso">';
+
+            if (ultimoCalculo.tipo === 'cuartiles') {
+                ultimoCalculo.pasos.forEach((paso, i) => {
+                    contenido += paso;
+                });
+            } else if (ultimoCalculo.tipo === 'deciles') {
+                ultimoCalculo.pasos.forEach((paso, i) => {
+                    contenido += paso;
+                });
+            } else {
+                contenido += ultimoCalculo.pasos.join('');
+            }
+
+            contenido += '</div>';
+
+            document.getElementById('modalContenido').innerHTML = contenido;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
         function mostrarError(mensaje) {
             document.getElementById('resultados').innerHTML = 
                 `<div class="error">❌ Error: ${mensaje}</div>`;
         }
 
-        function parsearRango(rango) {
-            const patron = /^(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)$/;
-            const match = rango.trim().match(patron);
-
-            if (!match) {
-                throw new Error(`Formato de rango inválido: ${rango}`);
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                cerrarModal();
             }
-
-            const inicio = parseFloat(match[1]);
-            const fin = parseFloat(match[2]);
-
-            if (inicio >= fin) {
-                throw new Error(`El valor inicial debe ser menor que el final: ${rango}`);
-            }
-
-            return { inicio, fin };
         }
 
-        // Agregar 5 clases iniciales al cargar
         window.onload = () => {
             for (let i = 0; i < 5; i++) {
                 agregarClase();
