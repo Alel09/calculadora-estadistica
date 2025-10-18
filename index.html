@@ -1219,10 +1219,36 @@
                 html += '</tr></tbody></table></div>';
                 
                 const media = sumaFM / acumulado;
+
+                const n = datos.reduce((sum, d) => sum + d.frecuencia, 0);
+                const posicionMediana = n / 2;
+                let claseMediana = null;
+                let acumuladoAnterior = 0;
+                let acumuladoMediana = 0;
+                
+                for (let i = 0; i < datos.length; i++) {
+                    const acumAntes = acumuladoMediana;
+                    acumuladoMediana += datos[i].frecuencia;
+                    if (acumuladoMediana >= posicionMediana && !claseMediana) {
+                        claseMediana = i;
+                        acumuladoAnterior = acumAntes;
+                        break;
+                    }
+                }
+
+                const dato = datos[claseMediana];
+                const { inicio, fin } = parsearRango(dato.rango);
+                const frecuenciaClase = dato.frecuencia;
+                const valorPaso2 = posicionMediana - acumuladoAnterior;
+                const porcentaje = (valorPaso2 / frecuenciaClase) * 100;
+                const amplitud = fin - inicio;
+                const y = (porcentaje / 100) * amplitud;
+                const mediana = inicio + y;
                 
                 html += '<div class="stats-summary">';
                 html += `<div class="stat-card"><h4>n</h4><div class="value">${acumulado}</div></div>`;
                 html += `<div class="stat-card"><h4>Media</h4><div class="value">${media.toFixed(decimales)}</div></div>`;
+                html += `<div class="stat-card"><h4>Mediana</h4><div class="value">${mediana.toFixed(decimales)}</div></div>`;
                 html += `<div class="stat-card"><h4>Σ(f × m)</h4><div class="value">${sumaFM.toFixed(decimales)}</div></div>`;
                 
                 if (completo) {
